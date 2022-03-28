@@ -1,0 +1,35 @@
+#main {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    columns: 2;
+}
+
+.quadrante1 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(184, 184, 0);
+    margin: 5px;
+}
+
+.quadrante2 {
+    height: 50px;
+    width: 50px;
+    background-color: purple;
+    margin: 5px;
+}
+
+.quadrante3 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(0, 0, 150);
+    margin: 5px;
+}
+
+.quadrante4 {
+    height: 50px;
+    width: 50px;
+    background-color: orange;
+    margin: 5px;
+}
