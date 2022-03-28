@@ -1,54 +1,109 @@
+document.addEventListener("DOMContentLoaded", paginaInicial);
 
-/* function iniciarGame () {
-let sequencia = [ ];
-principalTextos.innerHTML = ''
-principalTextos.innerHTML = 'Seu jogo começara em'
-principalTextos.innerHTML = ''
-principalTextos.innerHTML = '3'
-principalTextos.innerHTML = ''
-principalTextos.innerHTML = '2'
-principalTextos.innerHTML = ''
-principalTextos.innerHTML = '1'
-principalTextos.innerHTML = ''
+const main = document.getElementById("main");
+const principal = document.createElement("section");
+const principalTextos = document.createElement("p");
+const btnIniciar = document.createElement("button");
+const quadrante1 = document.createElement("button");
+const quadrante2 = document.createElement("button");
+const quadrante3 = document.createElement("button");
+const quadrante4 = document.createElement("button");
+const quadrantes = [quadrante1, quadrante2, quadrante3, quadrante4];
+let jogoMaquina;
+let jogoUsuario;
 
+function paginaInicial() {
+  quadrante1.classList = "quadrante1";
+  main.appendChild(quadrante1);
+
+  quadrante2.classList = "quadrante2";
+  main.appendChild(quadrante2);
+
+  main.appendChild(principal);
+
+  principalTextos.innerText = "Clique no botão para iniciar o jogo!";
+  principal.appendChild(principalTextos);
+
+  btnIniciar.innerText = "INICIAR";
+  btnIniciar.addEventListener("click", iniciarGame);
+  principal.appendChild(btnIniciar);
+
+  quadrante3.classList = "quadrante3";
+  main.appendChild(quadrante3);
+
+  quadrante4.classList = "quadrante4";
+  main.appendChild(quadrante4);
 }
-*/
 
-document.addEventListener('DOMContentLoaded', paginaInicial)
+function iniciarGame() {
+  let sequencia = [];
+  /*
+  acho que precisa adicionar intervalos pra aparecer certinho, não?
+  principalTextos.innerHTML = ''
+  principalTextos.innerHTML = 'Seu jogo começara em'
+  principalTextos.innerHTML = ''
+  principalTextos.innerHTML = '3'
+  principalTextos.innerHTML = ''
+  principalTextos.innerHTML = '2'
+  principalTextos.innerHTML = ''
+  principalTextos.innerHTML = '1'
+  principalTextos.innerHTML = ''
+  */
 
-function paginaInicial () {
-    const main = document.getElementById('main')
+  jogoMaquina = [];
+  let contadorPontuacao = 0;
+  principal.removeChild(btnIniciar);
+  novaRodada();
+}
 
-    const quadrante1 = document.createElement('button')
-    quadrante1.id = 'quadrante1'
-    quadrante1.classList = 'quadrante1'
-    main.appendChild(quadrante1)
+function novaRodada() {
+  jogoUsuario = [];
+  let numAleatorio = Math.floor(Math.random() * 4);
+  jogoMaquina.push();
+  rodadaMaquina();
+  rodadaUsuario();
+}
 
-    const quadrante2 = document.createElement('button')
-    quadrante2.id = 'quadrante2'
-    quadrante2.classList = 'quadrante2'
-    main.appendChild(quadrante2)
+function rodadaMaquina() {
+  principalTextos.innerText = "Preste atenção à sequência";
+  for (let i = 0; i < jogoMaquina.length; i++) {
+    /*percorre o jogoMaquina e adiciona e remove classe 
+    com os tempos e intervalos setados*/
+  }
+}
 
-    const principal = document.createElement('section')
-    main.appendChild(principal)
+function rodadaUsuario() {
+  principalTextos.innerText = `Sua vez 
+  Consegue lembrar a sequência?`;
+  listenerQuadrante(quadrante1);
+  listenerQuadrante(quadrante2);
+  listenerQuadrante(quadrante3);
+  listenerQuadrante(quadrante4);
+}
 
-    const principalTextos = document.createElement('p')
-    principalTextos.id = 'principalTextos'
-    principalTextos.innerText = 'Clique no botão para iniciar o jogo!'
-    principal.appendChild(principalTextos)
+function listenerQuadrante(quadrante) {
+  quadrante.addEventListener("click", () => {
+    tentativaUsuario(quadrante);
+  });
+}
 
-    const btnIniciar = document.createElement('button')
-    btnIniciar.id = 'btnIniciar'
-    principal.appendChild(btnIniciar)
-    principal.innerText = 'INICIAR'
+function tentativaUsuario(quadranteClicado) {
+  jogoUsuario.push(quadranteClicado);
+  if (jogoUsuario.length === jogoMaquina.length) {
+    resultadoRodada();
+  }
+}
 
-    const quadrante3 = document.createElement('button')
-    quadrante3.id = 'quadrante3'
-    quadrante3.classList = 'quadrante3'
-    main.appendChild(quadrante3)
-
-    const quadrante4 = document.createElement('button')
-    quadrante4.id = 'quadrante4'
-    quadrante4.classList = 'quadrante4'
-    main.appendChild(quadrante4)
+function resultadoRodada() {
+  /*
+    compara jogoMaquina com jogoUsuario e retorna valor booleano
+      se for true
+        mostra mensagem de acerto
+        adiciona 1 ao contadorPontuacao
+        chama a função novaRodada
+      senão
+        mostra mensagem de erro
+        mostra contadorPontuacao como a pontuação total
+        mostra botão iniciarGame com texto mudado para Tentar novamente
+  */
 }
