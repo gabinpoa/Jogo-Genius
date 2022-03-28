@@ -1,0 +1,31 @@
+Criar todos elementos com DOM
+
+lista quadrantes recebe todos os quadrantes
+
+botão iniciarGame recebe um eventListener de click com a função iniciarGame
+
+função iniciarGame
+    cria lista jogoMaquina vazia
+    chama a função novaRodada
+
+função tentativa com parametro quadranteClicado
+    adiciona o quadranteClicado na lista jogoUsuario
+    se o length de jogoUsuario for igual ao de jogoMaquina
+        chama a função resultado
+
+função resultado
+    compara jogoMaquina com jogoUsuario e retorna valor
+    se for compativel
+        mostra mensagem de acerto
+        chama a função novaRodada
+    senão 
+        mostra mensagem de erro
+        mostra botão iniciarGame com texto mudado para Tentar novamente
+
+função novaRodada 
+    cria lista jogoUsuario vazia
+    adiciona um quadrante aleatorio ao jogoMaquina
+    loop percorre o jogoMaquina e adiciona e remove classe com os tempos e intervalos setados
+    cada quadrante recebe um eventListener de click com uma função tentativa e parametro com o proprio id
+    
+
