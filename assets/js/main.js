@@ -1,56 +1,34 @@
-document.addEventListener("DOMContentLoaded", paginaInicial);
-
-const main = document.getElementById("main");
-const principal = document.createElement("section");
-const principalTextos = document.createElement("p");
-const btnIniciar = document.createElement("button");
-const quadrante1 = document.createElement("button");
-const quadrante2 = document.createElement("button");
-const quadrante3 = document.createElement("button");
-const quadrante4 = document.createElement("button");
+const principal = document.getElementById('principal')
+const principalTextos = document.getElementById('principalTextos')
+const btnIniciar = document.getElementById('btnIniciar')
+const quadrante1 = document.getElementById('quadrante1')
+const quadrante2 = document.getElementById('quadrante2')
+const quadrante3 = document.getElementById('quadrante3')
+const quadrante4 = document.getElementById('quadrante4')
 const quadrantes = [quadrante1, quadrante2, quadrante3, quadrante4];
 let jogoMaquina;
 let jogoUsuario;
 
-function paginaInicial() {
-  quadrante1.classList = "quadrante1";
-  main.appendChild(quadrante1);
-
-  quadrante2.classList = "quadrante2";
-  main.appendChild(quadrante2);
-
-  main.appendChild(principal);
-
-  principalTextos.innerText = "Clique no botão para iniciar o jogo!";
-  principal.appendChild(principalTextos);
-
-  btnIniciar.innerText = "INICIAR";
-  btnIniciar.addEventListener("click", iniciarGame);
-  principal.appendChild(btnIniciar);
-
-  quadrante3.classList = "quadrante3";
-  main.appendChild(quadrante3);
-
-  quadrante4.classList = "quadrante4";
-  main.appendChild(quadrante4);
-}
+btnIniciar.addEventListener('click', iniciarGame)
 
 function iniciarGame() {
+  
   let sequencia = [];
-  /*
-  acho que precisa adicionar intervalos pra aparecer certinho, não?
-  principalTextos.innerHTML = ''
-  principalTextos.innerHTML = 'Seu jogo começara em'
-  principalTextos.innerHTML = ''
-  principalTextos.innerHTML = '3'
-  principalTextos.innerHTML = ''
-  principalTextos.innerHTML = '2'
-  principalTextos.innerHTML = ''
-  principalTextos.innerHTML = '1'
-  principalTextos.innerHTML = ''
-  */
-
-  jogoMaquina = [];
+  setTimeout(() => {principalTextos.innerText = 'Preste atenção à sequência';
+    setTimeout(() => {principalTextos.innerText = 'Seu jogo começara em';
+      setTimeout(() => {principalTextos.innerText = '3';
+        setTimeout(() => {principalTextos.innerText = '2';
+        setTimeout(() => {principalTextos.innerText = '1'}, 1000)
+        }, 1000)
+      }, 1000)
+    }, 1200)
+  }, 1500)
+  
+  
+  
+  
+}
+  /*jogoMaquina = [];
   let contadorPontuacao = 0;
   principal.removeChild(btnIniciar);
   novaRodada();
@@ -67,9 +45,10 @@ function novaRodada() {
 function rodadaMaquina() {
   principalTextos.innerText = "Preste atenção à sequência";
   for (let i = 0; i < jogoMaquina.length; i++) {
-    /*percorre o jogoMaquina e adiciona e remove classe 
-    com os tempos e intervalos setados*/
-  }
+    percorre o jogoMaquina e adiciona e remove classe 
+    com os tempos e intervalos setados
+  }  
+  
 }
 
 function rodadaUsuario() {
@@ -95,7 +74,7 @@ function tentativaUsuario(quadranteClicado) {
 }
 
 function resultadoRodada() {
-  /*
+  
     compara jogoMaquina com jogoUsuario e retorna valor booleano
       se for true
         mostra mensagem de acerto
@@ -105,5 +84,6 @@ function resultadoRodada() {
         mostra mensagem de erro
         mostra contadorPontuacao como a pontuação total
         mostra botão iniciarGame com texto mudado para Tentar novamente
-  */
+  
 }
+*/
